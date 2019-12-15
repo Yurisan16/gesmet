@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div id="trabajador-info" class="row col-lg-12">
+    {{ form_start(edit_form) }}
+    <h1>Editar Producto</h1>
+    <div id="trabajador-subtitle" class="row">
+        <div>
+            <div class="trabajador-subtitle-data row">
+                <a class="btn btn-info pull-right" href="{{ path('product_index',{'estado' : 'activo'}) }}"><span
+                        class="glyphicon glyphicon-arrow-left"></span> Volver a la lista</a>
+                <button class="btn btn-primary pull-right" type="submit"><span class="glyphicon glyphicon-ok"></span>
+                    Confirmar</button>
+            </div>
+            <div>
+                <h5 class="col-md-3">
+                    <p>Producto</p> {{ form_widget(edit_form.productname, {'attr': {'class': 'form-control'}}) }}
+                </h5>
+                <h5 class="col-md-3">
+                    <p>Cantidad</p> {{ form_widget(edit_form.amount, {'attr': {'class': 'form-control'}}) }}
+                </h5>
+                <h5 class="col-md-3">
+                    <p>Descripción</p> {{ form_widget(edit_form.description, {'attr': {'class': 'form-control'}}) }}
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_end(edit_form) }}
+{% endblock %}

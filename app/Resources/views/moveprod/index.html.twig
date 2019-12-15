@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Moveprods list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Typemove</th>
+                <th>Reason</th>
+                <th>Movedate</th>
+                <th>Amount</th>
+                <th>Observation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for moveProd in moveProds %}
+            <tr>
+                <td><a href="{{ path('moveprod_show', { 'id': moveProd.id }) }}">{{ moveProd.id }}</a></td>
+                <td>{{ moveProd.typemove }}</td>
+                <td>{{ moveProd.reason }}</td>
+                <td>{% if moveProd.movedate %}{{ moveProd.movedate|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ moveProd.amount }}</td>
+                <td>{{ moveProd.observation }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('moveprod_show', { 'id': moveProd.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('moveprod_edit', { 'id': moveProd.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('moveprod_new') }}">Create a new moveProd</a>
+        </li>
+    </ul>
+{% endblock %}

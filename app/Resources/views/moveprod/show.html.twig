@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Moveprod</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ moveProd.id }}</td>
+            </tr>
+            <tr>
+                <th>Typemove</th>
+                <td>{{ moveProd.typemove }}</td>
+            </tr>
+            <tr>
+                <th>Reason</th>
+                <td>{{ moveProd.reason }}</td>
+            </tr>
+            <tr>
+                <th>Movedate</th>
+                <td>{% if moveProd.movedate %}{{ moveProd.movedate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ moveProd.amount }}</td>
+            </tr>
+            <tr>
+                <th>Observation</th>
+                <td>{{ moveProd.observation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('moveprod_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('moveprod_edit', { 'id': moveProd.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Technicians list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Technicianid</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Responsibility</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for technician in technicians %}
+            <tr>
+                <td><a href="{{ path('technician_show', { 'id': technician.id }) }}">{{ technician.id }}</a></td>
+                <td>{{ technician.firstname }}</td>
+                <td>{{ technician.lastname }}</td>
+                <td>{{ technician.technicianid }}</td>
+                <td>{{ technician.telephone }}</td>
+                <td>{{ technician.email }}</td>
+                <td>{{ technician.address }}</td>
+                <td>{{ technician.responsibility }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('technician_show', { 'id': technician.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('technician_edit', { 'id': technician.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('technician_new') }}">Create a new technician</a>
+        </li>
+    </ul>
+{% endblock %}

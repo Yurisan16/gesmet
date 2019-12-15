@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ asset('assets/css/datatables/dataTables.bootstrap.min.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <div id="page-title">
+        <h1 class="pull-left">Listado de productos</h1>
+    </div>
+    </br>
+    <div>
+        {{ include ("assets_views/indexbuttons.html.twig",{
+            'new_link' : path('product_new'),
+            'print_link' : path('product_new'),
+            'export_link' : path('product_new'),
+            }) }}
+    </div>
+
+    <div>
+        <table id="datos" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ product.prodtype }}</td>
+                    <td>{{ product.amount }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

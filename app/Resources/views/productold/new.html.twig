@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    {{ form_start(form) }}
+    <h1>Nuevo producto</h1>
+    <div id="trabajador-subtitle" class="row">
+        <div>
+            <div class="trabajador-subtitle-data row">
+                <a class="btn btn-info pull-right" href="{{ path('product_index',{'estado' : 'activo'}) }}"><span class="glyphicon glyphicon-arrow-left"></span> Volver a la lista</a>
+                <button class="btn btn-primary pull-right" type="submit"><span class="glyphicon glyphicon-ok"></span> Confirmar</button>
+            </div>
+            <div>
+                <h5 class="col-md-3"><p>Producto</p> {{ form_widget(form.prodtype.prodtypename, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-md-3"><p>Cantidad</p> {{ form_widget(form.amount, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-md-3"><p>Descripción</p> {{ form_widget(form.productname, {'attr': {'class': 'form-control'}}) }}</h5>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
