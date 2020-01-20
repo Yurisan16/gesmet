@@ -22,9 +22,9 @@ class MoveProd
     private $id;
 
     /**
-     * @var ProdType
+     * @var Product
      * 
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ProdType")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product")
      * @ORM\JoinColumns({
      * @ORM\JoinColumn(name="product", referencedColumnName="id")
      * })
@@ -103,7 +103,7 @@ class MoveProd
     /**
      * Get typemove
      *
-     * g@return string
+     * @return string
      */
     public function getTypemove()
     {
@@ -209,11 +209,11 @@ class MoveProd
     /**
      * Set product
      *
-     * @param \AppBundle\Entity\ProdType $product
+     * @param \AppBundle\Entity\Product $product
      *
      * @return MoveProd
      */
-    public function setProduct(\AppBundle\Entity\ProdType $product = null)
+    public function setProduct(\AppBundle\Entity\Product $product = null)
     {
         $this->product = $product;
 

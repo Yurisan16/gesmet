@@ -22,11 +22,28 @@ class Product
     private $id;
 
     /**
+     * @var ProdType
+     * 
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ProdType")
+     * @ORM\JoinColumns({
+     * @ORM\JoinColumn(name="prodtype", referencedColumnName="id")
+     * })
+     */
+    private $prodtype;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product", type="string", length=50)
+     */
+    private $product;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=150)
      */
-    private $product;
+    private $description;
 
     /**
      * @var int
@@ -35,15 +52,6 @@ class Product
      */
     private $amount;
 
-     /**
-     * @var ProdType
-     * 
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ProdType")
-     * @ORM\JoinColumns({
-     * @ORM\JoinColumn(name="productname", referencedColumnName="id")
-     * })
-     */
-    private $productname;
 
     /**
      * Get id
@@ -53,30 +61,6 @@ class Product
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set amount
-     *
-     * @param integer $amount
-     *
-     * @return Product
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Get amount
-     *
-     * @return integer
-     */
-    public function getAmount()
-    {
-        return $this->amount;
     }
 
     /**
@@ -104,26 +88,74 @@ class Product
     }
 
     /**
-     * Set productname
+     * Set description
      *
-     * @param \AppBundle\Entity\ProdType $productname
+     * @param string $description
      *
      * @return Product
      */
-    public function setProductname(\AppBundle\Entity\ProdType $productname = null)
+    public function setDescription($description)
     {
-        $this->productname = $productname;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get productname
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set amount
+     *
+     * @param integer $amount
+     *
+     * @return Product
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return integer
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * Set prodtype
+     *
+     * @param \AppBundle\Entity\ProdType $prodtype
+     *
+     * @return Product
+     */
+    public function setProdtype(\AppBundle\Entity\ProdType $prodtype = null)
+    {
+        $this->prodtype = $prodtype;
+
+        return $this;
+    }
+
+    /**
+     * Get prodtype
      *
      * @return \AppBundle\Entity\ProdType
      */
-    public function getProductname()
+    public function getProdtype()
     {
-        return $this->productname;
+        return $this->prodtype;
     }
 }

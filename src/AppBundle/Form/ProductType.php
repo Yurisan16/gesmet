@@ -16,12 +16,13 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('product')
-        ->add('amount')
-        ->add('productname', EntityType::class, [
-            'class' => ProdType::class,
+        ->add('prodtype', EntityType::class, [
+            'class' => ProdType::class, 
             'choice_label' => 'prodtypename',
             'placeholder' => 'Seleccione el producto'
-        ]);
+        ])
+        ->add('description')
+        ->add('amount');
     }/**
      * {@inheritdoc}
      */
@@ -39,4 +40,6 @@ class ProductType extends AbstractType
     {
         return 'appbundle_product';
     }
+
+
 }

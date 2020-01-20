@@ -2,9 +2,8 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Product;
 use AppBundle\Entity\Area;
-use AppBundle\Entity\ProdType;
+use AppBundle\Entity\Product;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -19,7 +18,11 @@ class MoveProdType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('typemove', ChoiceType::class, array('choices' => ['Entrada' => 'Entrada', 'Salida' => 'Salida'], 'placeholder' => 'Seleccione'))
+        $builder->add('typemove', ChoiceType::class, array(
+            'choices' => [
+                'Entrada' => 'Entrada', 
+                'Salida' => 'Salida'], 
+            'placeholder' => 'Seleccione'))
         ->add('reason')
         ->add('movedate', DateType::class, array(
             'widget' => 'single_text'
@@ -27,15 +30,16 @@ class MoveProdType extends AbstractType
         ->add('amount')
         ->add('observation')
         ->add('product', EntityType::class, [
-            'class' => ProdType::class,
-            'choice_label' => 'prodtypename',
+            'class' => Product::class, 
+            'choice_label' => 'product',
             'placeholder' => 'Seleccione el producto'
         ])
         ->add('destination', EntityType::class, [
             'class' => Area::class,
             'choice_label' => 'areaname',
-            'placeholder' => 'Seleccione el destino'
+            'placeholder' => 'Seleccione el área'
         ]);
+
     }/**
      * {@inheritdoc}
      */

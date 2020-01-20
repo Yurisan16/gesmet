@@ -44,6 +44,17 @@ class MoveProdController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if ($moveProd->getTypemove() == "Entrada") {
+                # code...
+                $valor = $moveProd->getProduct()->getAmount() + $moveProd->getAmount();
+                $moveProd->getProduct()->setAmount($valor);
+            } else {
+                # code...
+                $valor = $moveProd->getProduct()->getAmount() - $moveProd->getAmount();
+                $moveProd->getProduct()->setAmount($valor);
+            }
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($moveProd);
             $em->flush();
