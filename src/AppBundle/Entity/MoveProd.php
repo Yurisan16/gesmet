@@ -22,16 +22,6 @@ class MoveProd
     private $id;
 
     /**
-     * @var Product
-     * 
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product")
-     * @ORM\JoinColumns({
-     * @ORM\JoinColumn(name="product", referencedColumnName="id")
-     * })
-     */
-    private $product;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="typemove", type="string", length=25)
@@ -72,9 +62,9 @@ class MoveProd
     /**
      * @var string
      *
-     * @ORM\Column(name="observation", type="string", length=250)
+     * @ORM\Column(name="description", type="string", length=250)
      */
-    private $observation;
+    private $description;
 
     /**
      * Get id
@@ -183,51 +173,27 @@ class MoveProd
     }
 
     /**
-     * Set observation
+     * Set description
      *
-     * @param string $observation
+     * @param string $description
      *
      * @return MoveProd
      */
-    public function setObservation($observation)
+    public function setDescription($description)
     {
-        $this->observation = $observation;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get observation
+     * Get description
      *
      * @return string
      */
-    public function getObservation()
+    public function getDescription()
     {
-        return $this->observation;
-    }
-
-    /**
-     * Set product
-     *
-     * @param \AppBundle\Entity\Product $product
-     *
-     * @return MoveProd
-     */
-    public function setProduct(\AppBundle\Entity\Product $product = null)
-    {
-        $this->product = $product;
-
-        return $this;
-    }
-
-    /**
-     * Get product
-     *
-     * @return \AppBundle\Entity\Product
-     */
-    public function getProduct()
-    {
-        return $this->product;
+        return $this->description;
     }
 
     /**

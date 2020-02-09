@@ -11,7 +11,7 @@
                 <th>Reason</th>
                 <th>Movedate</th>
                 <th>Amount</th>
-                <th>Observation</th>
+                <th>Description</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,7 +23,7 @@
                 <td>{{ moveProd.reason }}</td>
                 <td>{% if moveProd.movedate %}{{ moveProd.movedate|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ moveProd.amount }}</td>
-                <td>{{ moveProd.observation }}</td>
+                <td>{{ moveProd.description }}</td>
                 <td>
                     <ul>
                         <li>
