@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\Area;
+use AppBundle\Entity\Product;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -23,6 +24,11 @@ class MoveProdType extends AbstractType
                 'Salida' => 'Salida'], 
             'placeholder' => 'Seleccione'))
         ->add('reason')
+        ->add('product', EntityType::class, [
+            'class' => Product::class,
+            'choice_label' => 'prodname',
+            'placeholder' => 'Seleccione el producto'
+        ])
         ->add('movedate', DateType::class, array(
             'widget' => 'single_text'
         ))
