@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\MoveProd;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Moveprod controller.
@@ -47,12 +48,13 @@ class MoveProdController extends Controller
 
             /*if ($moveProd->getTypemove() == "Entrada") {
                 # code...
-                $valor = $moveProd->getProduct()->getAmount() + $moveProd->getAmount();
-                $moveProd->getProduct()->setAmount($valor);
+                $valor = $moveProd->getAmount() + $request->query->get('amount');
+                $moveProd->setAmount($valor);
             } else {
                 # code...
-                $valor = $moveProd->getProduct()->getAmount() - $moveProd->getAmount();
-                $moveProd->getProduct()->setAmount($valor);
+                    $valor = $moveProd->getAmount() - $request->query->get('amount');
+                    $moveProd->setAmount($valor);
+                
             }*/
 
             $em = $this->getDoctrine()->getManager();

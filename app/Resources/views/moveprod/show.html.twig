@@ -10,28 +10,32 @@
                 <td>{{ moveProd.id }}</td>
             </tr>
             <tr>
-                <th>Typemove</th>
+                <th>Tipo de Movimiento</th>
                 <td>{{ moveProd.typemove }}</td>
             </tr>
             <tr>
-                <th>Product</th>
+                <th>Producto</th>
                 <td>{{ moveProd.product.prodname }}</td>
             </tr>
             <tr>
-                <th>Reason</th>
+                <th>Motivo</th>
                 <td>{{ moveProd.reason }}</td>
             </tr>
             <tr>
-                <th>Movedate</th>
+                <th>Fecha</th>
                 <td>{% if moveProd.movedate %}{{ moveProd.movedate|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Amount</th>
+                <th>Cantidad</th>
                 <td>{{ moveProd.amount }}</td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th>Descripción</th>
                 <td>{{ moveProd.description }}</td>
+            </tr>
+            <tr>
+                <th>Destino</th>
+                <td>{{ moveProd.destination.areaname }}</td>
             </tr>
         </tbody>
     </table>

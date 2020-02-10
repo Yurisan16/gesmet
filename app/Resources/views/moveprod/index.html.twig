@@ -1,49 +1,64 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ asset('/web/assets/css/datatables/dataTables.bootstrap.min.css') }}">
+{% endblock %}
+
 {% block body %}
-    <h1>Moveprods list</h1>
+<div class="container">
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Typemove</th>
-                <th>Product</th>
-                <th>Reason</th>
-                <th>Movedate</th>
-                <th>Amount</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for moveProd in moveProds %}
-            <tr>
-                <td><a href="{{ path('moveprod_show', { 'id': moveProd.id }) }}">{{ moveProd.id }}</a></td>
-                <td>{{ moveProd.typemove }}</td>
-                <td>{{ moveProd.product.prodname}}</td>
-                <td>{{ moveProd.reason }}</td>
-                <td>{% if moveProd.movedate %}{{ moveProd.movedate|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ moveProd.amount }}</td>
-                <td>{{ moveProd.description }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('moveprod_show', { 'id': moveProd.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('moveprod_edit', { 'id': moveProd.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div id="page-title">
+        <h1 class="pull-left">Listado de movimientos de productos</h1>
+    </div>
+    </br>
+    <div>
+        {{ include ("assets_views/indexbuttons.html.twig",{
+            'new_link' : path('moveprod_new'),
+            'print_link' : path('moveprod_new'),
+            'export_link' : path('moveprod_new'),
+            }) }}
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('moveprod_new') }}">Create a new moveProd</a>
-        </li>
-    </ul>
+    <div>
+        <table id="datos" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Tipo de Movimiento</th>
+                    <th>Producto</th>
+                    <th>Descripción</th>
+                    <th>Cantidad</th>
+                    <th>Motivo</th>
+                    <th>Fecha</th>  
+                    <th>Destino</th>                  
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for moveProd in moveProds %}
+                <tr>
+                    <td><a href="{{ path('moveprod_show', { 'id': moveProd.id }) }}">{{ moveProd.id }}</a></td>
+                    <td>{{ moveProd.typemove }}</td>
+                    <td>{{ moveProd.product.prodname}}</td>
+                    <td>{{ moveProd.description }}</td>
+                    <td>{{ moveProd.amount }}</td>
+                    <td>{{ moveProd.reason }}</td>
+                    <td>{% if moveProd.movedate %}{{ moveProd.movedate|date('Y-m-d') }}{% endif %}</td>
+                    <td>{{ moveProd.destination.areaname }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('moveprod_show', { 'id': moveProd.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('moveprod_edit', { 'id': moveProd.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
