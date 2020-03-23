@@ -6,22 +6,21 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProductType extends AbstractType
+class TechnicianType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('prodname')
-        ->add('description');
+        $builder->add('technicianname')->add('lastname')->add('ci')->add('cellphone')->add('email')->add('address')->add('position');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Product'
+            'data_class' => 'AppBundle\Entity\Technician'
         ));
     }
 
@@ -30,7 +29,7 @@ class ProductType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_product';
+        return 'appbundle_technician';
     }
 
 

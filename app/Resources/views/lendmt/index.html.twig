@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lendmts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lenddate</th>
+                <th>Received</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lendMT in lendMTs %}
+            <tr>
+                <td><a href="{{ path('lendmt_show', { 'id': lendMT.id }) }}">{{ lendMT.id }}</a></td>
+                <td>{% if lendMT.lenddate %}{{ lendMT.lenddate|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ lendMT.received }}</td>
+                <td>{{ lendMT.reason }}</td>
+                <td>{{ lendMT.status }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lendmt_show', { 'id': lendMT.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lendmt_edit', { 'id': lendMT.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lendmt_new') }}">Create a new lendMT</a>
+        </li>
+    </ul>
+{% endblock %}

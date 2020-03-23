@@ -28,38 +28,10 @@ class Product
      */
     private $prodname;
 
-
     /**
-     * Get id
-     *
-     * @return int
+     * @var string
+     * 
+     * @ORM\Column(name="description", type="string", length=255)
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set prodname
-     *
-     * @param string $prodname
-     *
-     * @return Product
-     */
-    public function setProdname($prodname)
-    {
-        $this->prodname = $prodname;
-
-        return $this;
-    }
-
-    /**
-     * Get prodname
-     *
-     * @return string
-     */
-    public function getProdname()
-    {
-        return $this->prodname;
-    }
+    private $description;
 }

@@ -7,13 +7,13 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Firstname</th>
+                <th>Technicianname</th>
                 <th>Lastname</th>
-                <th>Technicianid</th>
-                <th>Telephone</th>
+                <th>Ci</th>
+                <th>Cellphone</th>
                 <th>Email</th>
                 <th>Address</th>
-                <th>Responsibility</th>
+                <th>Position</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,13 +21,13 @@
         {% for technician in technicians %}
             <tr>
                 <td><a href="{{ path('technician_show', { 'id': technician.id }) }}">{{ technician.id }}</a></td>
-                <td>{{ technician.firstname }}</td>
+                <td>{{ technician.technicianname }}</td>
                 <td>{{ technician.lastname }}</td>
-                <td>{{ technician.technicianid }}</td>
-                <td>{{ technician.telephone }}</td>
+                <td>{{ technician.ci }}</td>
+                <td>{{ technician.cellphone }}</td>
                 <td>{{ technician.email }}</td>
                 <td>{{ technician.address }}</td>
-                <td>{{ technician.responsibility }}</td>
+                <td>{{ technician.position }}</td>
                 <td>
                     <ul>
                         <li>
