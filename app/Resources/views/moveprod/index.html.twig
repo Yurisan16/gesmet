@@ -23,7 +23,7 @@
         <table id="datos" class="table table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th hidden>Id</th>
                     <th>Tipo de Movimiento</th>
                     <th>Producto</th>
                     <th>Descripción</th>
@@ -37,7 +37,7 @@
             <tbody>
                 {% for moveProd in moveProds %}
                 <tr>
-                    <td><a href="{{ path('moveprod_show', { 'id': moveProd.id }) }}">{{ moveProd.id }}</a></td>
+                    <td hidden><a href="{{ path('moveprod_show', { 'id': moveProd.id }) }}">{{ moveProd.id }}</a></td>
                     <td>{{ moveProd.typemove }}</td>
                     <td>{{ moveProd.product.prodname}}</td>
                     <td>{{ moveProd.description }}</td>
