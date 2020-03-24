@@ -36,16 +36,16 @@ class Technician
     private $lastname;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="ci", type="integer", unique=true)
+     * @ORM\Column(name="ci", type="string", length=11, unique=true)
      */
     private $ci;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="cellphone", type="integer", unique=true)
+     * @ORM\Column(name="phone", type="string", length=8, unique=true)
      */
     private $cellphone;
 

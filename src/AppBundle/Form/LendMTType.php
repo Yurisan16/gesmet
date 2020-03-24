@@ -7,6 +7,7 @@ use AppBundle\Entity\Technician;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -22,7 +23,12 @@ class LendMTType extends AbstractType
         ))
         ->add('received')
         ->add('reason')
-        ->add('status')
+        ->add('status', ChoiceType::class, array(
+            'choices' => [
+                'Prestada' => 'Prestada',
+                'Devuelta' => 'Devuelta'],
+            'placeholder' => 'Seleccione'
+        ))
         ->add('product', EntityType::class, [
             'class' => Product::class,
             'choice_label' => 'prodname',
@@ -50,6 +56,4 @@ class LendMTType extends AbstractType
     {
         return 'appbundle_lendmt';
     }
-
-
 }

@@ -13,7 +13,13 @@ class TechnicianType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('technicianname')->add('lastname')->add('ci')->add('cellphone')->add('email')->add('address')->add('position');
+        $builder->add('technicianname')
+        ->add('lastname')
+        ->add('ci')
+        ->add('cellphone')
+        ->add('email')
+        ->add('address')
+        ->add('position');
     }/**
      * {@inheritdoc}
      */
