@@ -31,7 +31,86 @@ class Product
     /**
      * @var string
      * 
+     * @ORM\Column(name="brand", type="string", length=50)
+     */
+    private $brand;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="model", type="string", length=50)
+     */
+    private $model;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="mt", type="string", length=2)
+     */
+    private $mt;
+
+    /**
+     * @var string
+     * 
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set prodname
+     *
+     * @param string $prodname
+     *
+     * @return Product
+     */
+    public function setProdname($prodname)
+    {
+        $this->prodname = $prodname;
+
+        return $this;
+    }
+
+    /**
+     * Get prodname
+     *
+     * @return string
+     */
+    public function getProdname()
+    {
+        return $this->prodname;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Product
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 }

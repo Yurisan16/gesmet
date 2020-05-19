@@ -26,7 +26,9 @@
                     <th hidden>Id</th>
                     <th>Tipo de Movimiento</th>
                     <th>Producto</th>
-                    <th>Descripción</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Observaciones</th>
                     <th>Cantidad</th>
                     <th>Motivo</th>
                     <th>Fecha</th>  
@@ -40,7 +42,9 @@
                     <td hidden><a href="{{ path('moveprod_show', { 'id': moveProd.id }) }}">{{ moveProd.id }}</a></td>
                     <td>{{ moveProd.typemove }}</td>
                     <td>{{ moveProd.product.prodname}}</td>
-                    <td>{{ moveProd.description }}</td>
+                    <td>{{ moveProd.product.brand}}</td>
+                    <td>{{ moveProd.product.model}}</td>
+                    <td>{{ moveProd.observation }}</td>
                     <td>{{ moveProd.amount }}</td>
                     <td>{{ moveProd.reason }}</td>
                     <td>{% if moveProd.movedate %}{{ moveProd.movedate|date('Y-m-d') }}{% endif %}</td>

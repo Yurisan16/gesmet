@@ -8,7 +8,7 @@
 <div class="container">
 
     <div id="page-title">
-        <h1 class="pull-left">Listado de productos</h1>
+        <h1 class="pull-left">Listado de Productos</h1>
     </div>
     </br>
     <div>
@@ -16,7 +16,8 @@
             'new_link' : path('product_new'),
             'print_link' : path('product_new'),
             'export_link' : path('product_new'),
-            }) }}
+            }) 
+        }}
     </div>
 
     <div>
@@ -25,7 +26,10 @@
             <tr>
                 <th hidden>Id</th>
                 <th>Producto</th>
-                <th>Descripción</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>MT</th>
+                <th>Observaciones</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -34,6 +38,9 @@
             <tr>
                 <td hidden><a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
                 <td>{{ product.prodname }}</td>
+                <td>{{ product.brand }}</td>
+                <td>{{ product.model }}</td>
+                <td>{{ product.mt }}</td>
                 <td>{{ product.description }}</td>
                 <td>
                     <ul>

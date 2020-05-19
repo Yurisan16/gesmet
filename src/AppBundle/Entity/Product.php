@@ -31,6 +31,27 @@ class Product
     /**
      * @var string
      * 
+     * @ORM\Column(name="brand", type="string", length=50)
+     */
+    private $brand;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="model", type="string", length=50)
+     */
+    private $model;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="mt", type="string", length=2)
+     */
+    private $mt;
+
+    /**
+     * @var string
+     * 
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
@@ -91,5 +112,77 @@ class Product
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set brand
+     *
+     * @param string $brand
+     *
+     * @return Product
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Get brand
+     *
+     * @return string
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * Set model
+     *
+     * @param string $model
+     *
+     * @return Product
+     */
+    public function setModel($model)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * Get model
+     *
+     * @return string
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * Set mt
+     *
+     * @param string $mt
+     *
+     * @return Product
+     */
+    public function setMt($mt)
+    {
+        $this->mt = $mt;
+
+        return $this;
+    }
+
+    /**
+     * Get mt
+     *
+     * @return string
+     */
+    public function getMt()
+    {
+        return $this->mt;
     }
 }

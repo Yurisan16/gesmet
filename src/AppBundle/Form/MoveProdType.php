@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -33,7 +34,7 @@ class MoveProdType extends AbstractType
             'widget' => 'single_text'
         ))
         ->add('amount')
-        ->add('description')
+        ->add('observation', TextareaType::class)
         ->add('destination', EntityType::class, [
             'class' => Area::class,
             'choice_label' => 'areaname',

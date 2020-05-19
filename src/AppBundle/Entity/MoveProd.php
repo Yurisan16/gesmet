@@ -72,9 +72,9 @@ class MoveProd
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=150)
+     * @ORM\Column(name="observation", type="string", length=150)
      */
-    private $description;
+    private $observation;
 
     /**
      * Get id
@@ -183,30 +183,6 @@ class MoveProd
     }
 
     /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return MoveProd
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
      * Set product
      *
      * @param \AppBundle\Entity\Product $product
@@ -252,5 +228,29 @@ class MoveProd
     public function getDestination()
     {
         return $this->destination;
+    }
+
+    /**
+     * Set observation
+     *
+     * @param string $observation
+     *
+     * @return MoveProd
+     */
+    public function setObservation($observation)
+    {
+        $this->observation = $observation;
+
+        return $this;
+    }
+
+    /**
+     * Get observation
+     *
+     * @return string
+     */
+    public function getObservation()
+    {
+        return $this->observation;
     }
 }
