@@ -43,9 +43,9 @@ class Product
     private $model;
 
     /**
-     * @var string
+     * @var boolean
      * 
-     * @ORM\Column(name="mt", type="string", length=2)
+     * @ORM\Column(name="mt", type="boolean")
      */
     private $mt;
 
@@ -112,5 +112,53 @@ class Product
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set brand
+     *
+     * @param string $brand
+     *
+     * @return Product
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Get brand
+     *
+     * @return string
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * Set model
+     *
+     * @param string $model
+     *
+     * @return Product
+     */
+    public function setModel($model)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * Get model
+     *
+     * @return string
+     */
+    public function getModel()
+    {
+        return $this->model;
     }
 }

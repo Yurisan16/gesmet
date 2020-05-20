@@ -43,9 +43,9 @@ class Product
     private $model;
 
     /**
-     * @var string
+     * @var boolean
      * 
-     * @ORM\Column(name="mt", type="string", length=2)
+     * @ORM\Column(name="mt", type="boolean")
      */
     private $mt;
 
@@ -165,7 +165,7 @@ class Product
     /**
      * Set mt
      *
-     * @param string $mt
+     * @param boolean $mt
      *
      * @return Product
      */
@@ -179,7 +179,7 @@ class Product
     /**
      * Get mt
      *
-     * @return string
+     * @return boolean
      */
     public function getMt()
     {
