@@ -4,7 +4,6 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,7 +19,13 @@ class ProductType extends AbstractType
         ->add('brand')
         ->add('model')
         ->add('description', TextareaType::class)
-        ->add('mt', RadioType::class);
+        ->add('mt', ChoiceType::class, array(
+            'choices' => [
+                'Si' => true,
+                'No' => false
+            ],
+            'placeholder' => 'Seleccione una opción'
+        ));
     }/**
      * {@inheritdoc}
      */
