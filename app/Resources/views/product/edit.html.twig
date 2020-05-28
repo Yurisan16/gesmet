@@ -1,21 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Product edit</h1>
-
+<div class="container">
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('product_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+     <h1>Editar producto</h1>
+     <div id="trabajador-subtitle" class="row">
+         <div>
+             <div class="trabajador-subtitle-data row">
+                 <!-- <a class="btn btn-danger pull-right" data-toggle="modal" href="#confirmDeleteModal" ><span class="glyphicon glyphicon-trash"></span> Dar baja</a> -->
+                 <a class="btn btn-info pull-right" href="{{ path('product_index',{'estado' : 'activo'}) }}"><span class="glyphicon glyphicon-arrow-left"></span> Volver a la lista</a>
+                 <button class="btn btn-primary pull-right" type="submit"><span class="glyphicon glyphicon-ok"></span> Confirmar</button>
+             </div>
+             <div>
+                 <h5 class="col-lg-4"><p>Producto</p> {{ form_widget(edit_form.prodname, {'attr': {'class': 'form-control'}}) }}</h5>
+                 <h5 class="col-lg-4"><p>Marca</p> {{ form_widget(edit_form.brand, {'attr': {'class': 'form-control'}}) }}</h5>
+                 <h5 class="col-lg-4"><p>Modelo</p> {{ form_widget(edit_form.model, {'attr': {'class': 'form-control'}}) }}</h5>
+                 <h5 class="col-lg-4"><p>MT</p> {{ form_widget(edit_form.mt, {'attr': {'class': 'form-control'}}) }}</h5>
+                 <h5 class="col-lg-4"><p>Descripción</p> {{ form_widget(edit_form.description, {'attr': {'class': 'form-control'}}) }}</h5>
+             </div>        
+         </div>
+     </div>
+     {{ form_end(edit_form) }}
+ </div>
 {% endblock %}

@@ -46,22 +46,17 @@ class MoveProdController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            /*if ($moveProd->getTypemove() == "Entrada") {
+            /*$mp = $request->request->get('destination');
+            if ($moveProd->getTypemove() == "Entrada") {
                 # code...
-                $valor = $moveProd->getAmount() + $request->query->get('amount');
-                $moveProd->setAmount($valor);
-            } else {
-                # code...
-                    $valor = $moveProd->getAmount() - $request->query->get('amount');
-                    $moveProd->setAmount($valor);
-                
+                $moveProd->setDestination($mp);
             }*/
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($moveProd);
             $em->flush();
 
-            return $this->redirectToRoute('moveprod_show', array('id' => $moveProd->getId()));
+            return $this->redirectToRoute('moveprod_index');
         }
 
         return $this->render('moveprod/new.html.twig', array(
@@ -101,7 +96,7 @@ class MoveProdController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('moveprod_edit', array('id' => $moveProd->getId()));
+            return $this->redirectToRoute('moveprod_index');
         }
 
         return $this->render('moveprod/edit.html.twig', array(

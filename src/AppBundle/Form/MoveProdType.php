@@ -24,7 +24,7 @@ class MoveProdType extends AbstractType
                 'Entrada' => 'Entrada', 
                 'Salida' => 'Salida'], 
             'placeholder' => 'Seleccione'))
-        ->add('reason')
+        ->add('reason', TextareaType::class)
         ->add('product', EntityType::class, [
             'class' => Product::class,
             'choice_label' => 'prodname',
