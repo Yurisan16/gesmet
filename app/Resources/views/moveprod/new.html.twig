@@ -4,21 +4,22 @@
 {% block body %}
 <div class="container">
     {{ form_start(form) }}
-    <h1>Nuevo Movimiento de Producto</h1>
+    <h1>Nuevo movimiento de producto</h1>
     <div id="trabajador-subtitle" class="row">
         <div>
             <div class="trabajador-subtitle-data row">
-                <a class="btn btn-info pull-right" href="{{ path('product_index',{'estado' : 'activo'}) }}"><span class="glyphicon glyphicon-arrow-left"></span> Volver a la lista</a>
+                <a class="btn btn-info pull-right" href="{{ path('moveprod_index') }}"><span class="glyphicon glyphicon-arrow-left"></span> Volver a la lista</a>
                 <button class="btn btn-primary pull-right" type="submit"><span class="glyphicon glyphicon-ok"></span> Confirmar</button>
             </div>
             <div>
-                <h5 class="col-md-3"><p>Tipo de Movimiento</p> {{ form_widget(form.typemove, {'attr': {'class': 'form-control'}}) }}</h5>
-                <h5 class="col-md-3"><p>Producto</p> {{ form_widget(form.product, {'attr': {'class': 'form-control'}}) }}</h5>
-                <h5 class="col-md-3"><p>Observaciones</p> {{ form_widget(form.observation, {'attr': {'class': 'form-control'}}) }}</h5>
-                <h5 class="col-md-3"><p>Cantidad</p> {{ form_widget(form.amount, {'attr': {'class': 'form-control'}}) }}</h5>
-                <h5 class="col-md-3"><p>Motivo</p> {{ form_widget(form.reason, {'attr': {'class': 'form-control'}}) }}</h5>
-                <h5 class="col-md-3"><p>Fecha</p> {{ form_widget(form.movedate, {'attr': {'class': 'form-control'}}) }}</h5>
-                <h5 class="col-md-3"><p>Destino</p> {{ form_widget(form.destination, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Tipo de Movimiento</p> {{ form_widget(form.typemove, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Producto</p> {{ form_widget(form.product, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Observación</p> {{ form_widget(form.observation, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Cantidad</p> {{ form_widget(form.amount, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Motivo</p> {{ form_widget(form.reason, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Fecha</p> {{ form_widget(form.movedate, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Destino</p> {{ form_widget(form.destination, {'attr': {'class': 'form-control'}}) }}</h5>              
+                                
             </div>
         </div>
     </div>

@@ -1,21 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Moveprod edit</h1>
-
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+<div class="container">
+   {{ form_start(edit_form) }}
+    <h1>Editar movimiento del producto</h1>
+    <div id="trabajador-subtitle" class="row">
+        <div>
+            <div class="trabajador-subtitle-data row">
+                <!-- <a class="btn btn-danger pull-right" data-toggle="modal" href="#confirmDeleteModal" ><span class="glyphicon glyphicon-trash"></span> Dar baja</a> -->
+                <a class="btn btn-info pull-right" href="{{ path('moveprod_index',{'estado' : 'activo'}) }}"><span class="glyphicon glyphicon-arrow-left"></span> Volver a la lista</a>
+                <button class="btn btn-primary pull-right" type="submit"><span class="glyphicon glyphicon-ok"></span> Confirmar</button>
+            </div>
+            <div>
+                <h5 class="col-lg-4"><p>Tipo de Movimiento</p> {{ form_widget(edit_form.typemove, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Producto</p> {{ form_widget(edit_form.product, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Observación</p> {{ form_widget(edit_form.observation, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Cantidad</p> {{ form_widget(edit_form.amount, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Motivo</p> {{ form_widget(edit_form.reason, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Fecha</p> {{ form_widget(edit_form.movedate, {'attr': {'class': 'form-control'}}) }}</h5>
+                <h5 class="col-lg-4"><p>Destino</p> {{ form_widget(edit_form.destination, {'attr': {'class': 'form-control'}}) }}</h5>
+            </div>        
+        </div>
+    </div>
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('moveprod_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+</div>
 {% endblock %}
