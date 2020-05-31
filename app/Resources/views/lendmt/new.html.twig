@@ -1,16 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lendmt creation</h1>
-
+<div class="container">
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('lendmt_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <h1>Nuevo préstamo</h1>
+    <div id="trabajador-subtitle" class="row">
+        <div class="trabajador-subtitle-data row">
+            <a class="btn btn-info pull-right" href="{{ path('lendmt_index') }}"><span class="glyphicon glyphicon-arrow-left"></span> Volver a la lista</a>
+            <button class="btn btn-primary pull-right" type="submit"><span class="glyphicon glyphicon-ok"></span> Confirmar</button>
+        </div>
+        <div>
+            <h5 class="col-lg-4"><p>Producto</p> {{ form_widget(form.product, {'attr': {'class': 'form-control'}}) }}</h5>
+            <h5 class="col-lg-4"><p>Recibido por</p> {{ form_widget(form.received, {'attr': {'class': 'form-control'}}) }}</h5>
+            <h5 class="col-lg-4"><p>Motivo</p> {{ form_widget(form.reason, {'attr': {'class': 'form-control'}}) }}</h5>
+            <h5 class="col-lg-4"><p>Estado</p> {{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}</h5> 
+            <h5 class="col-lg-4"><p>Entregado por</p> {{ form_widget(form.technician, {'attr': {'class': 'form-control'}}) }}</h5> 
+            <h5 class="col-lg-4"><p>Fecha</p> {{ form_widget(form.lenddate, {'attr': {'class': 'form-control'}}) }}</h5>                              
+        </div> 
+    </div>
+</div>
+{{ form_end(form) }}
 {% endblock %}

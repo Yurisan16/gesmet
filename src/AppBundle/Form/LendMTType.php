@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -22,7 +23,7 @@ class LendMTType extends AbstractType
             'widget' => 'single_text'
         ))
         ->add('received')
-        ->add('reason')
+        ->add('reason', TextareaType::class)
         ->add('status', ChoiceType::class, array(
             'choices' => [
                 'Prestada' => 'Prestada',

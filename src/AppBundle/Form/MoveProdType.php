@@ -58,6 +58,4 @@ class MoveProdType extends AbstractType
     {
         return 'appbundle_moveprod';
     }
-
-
 }

@@ -88,7 +88,7 @@ class LendMTController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('lendmt_edit', array('id' => $lendMT->getId()));
+            return $this->redirectToRoute('lendmt_index');
         }
 
         return $this->render('lendmt/edit.html.twig', array(
